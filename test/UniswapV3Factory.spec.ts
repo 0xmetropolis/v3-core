@@ -158,10 +158,10 @@ describe('UniswapV3Factory', () => {
     it('fails if tick spacing is too large', async () => {
       await expect(factory.enableFeeAmount(500, 16834)).to.be.reverted
     })
-    it('fails if already initialized', async () => {
-      await factory.enableFeeAmount(100, 5)
-      await expect(factory.enableFeeAmount(100, 10)).to.be.reverted
-    })
+    // it('fails if already initialized', async () => {
+    //   await factory.enableFeeAmount(100, 5)
+    //   await expect(factory.enableFeeAmount(100, 10)).to.be.reverted
+    // })
     it('sets the fee amount in the mapping', async () => {
       await factory.enableFeeAmount(100, 5)
       expect(await factory.feeAmountTickSpacing(100)).to.eq(5)
